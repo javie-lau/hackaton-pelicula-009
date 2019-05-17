@@ -5,3 +5,4 @@ const filterType = (data, condition) => {
     return filterResult;
   };
   window.filterType = filterType;
+  
