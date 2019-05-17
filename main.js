@@ -1,6 +1,6 @@
 
 
-fetch("https://www.omdbapi.com/?apikey=21b45cac&s=star")
+fetch("https://www.omdbapi.com/?apikey=21b45cac&s=batman&type=movie")
     .then(function(response) {
         return response.json();
     })
@@ -22,3 +22,4 @@ fetch("https://www.omdbapi.com/?apikey=21b45cac&s=star")
     
          })
         })
+        
