@@ -3,6 +3,16 @@ window.onload;
 
 // URL de api OMDb
 let omdb = "https://www.omdbapi.com/?s=";
+//otra data
+let tmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6"
+fetch("https://api.themoviedb.org/3/search/movie?"+ tmdb+"&query=Lord+Of+The+rings")
+.then(function(response) {
+    return response.json();
+})
+.then(function(data){
+    datas=data;
+    console.log(datas)
+})
 
 // Página principal. Carrusel.
 let home = document.getElementById('root').innerHTML = 
