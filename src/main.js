@@ -49,78 +49,8 @@ $('.carousel').carousel({
     .then(function(data) {
         data=data.Search;
 
-       
-  /*
-let type2= "";
-document.getElementById("Type").addEventListener("change",()=>{
-    type2= document.getElementById("star").text;
-    
-    two.innerHTML="";   
-fetch("https://www.omdbapi.com/?s=star&apikey=21b45cac")
-
-
-     data.forEach(element=> {
-      document.getElementById('root').innerHTML += 
-      `
-        <div class="col-12-sm col-3 img-fluid""> 
-        <img class="image" src="${element.Poster}" alt="${element.Title}"> 
-          <h4> ${element.Title}<h4>
-        </div>
-      `
-     })
     })
 
-  })
-
-document.getElementById('movies').addEventListener('change', () => {  
-  document.getElementById('root').innerHTML = ``; 
-  
-
-})
-
-// Pantalla de about
-document.getElementById('about').addEventListener('click', () => {
-  document.getElementById('root').innerHTML = 
-  `
-  <article>
-    <h1> ¿Qué es ***? </h1>
-    <p>
-      Somos una página web diseñada para fanáticos de la saga "el 
-      señor de los anillos" y las creaciones de Tolkien en torno a este 
-      fantástico mundo.
-
-      Aquí puedes encontrar desde...
-
-      Si clickeas en "A qué personaje te pareces", 
-    </p>
-  </article>
-  `
-})
-
-// Evento que devuelve a la pantalla principal
-document.getElementById('home').addEventListener('click', () => {
-  document.getElementById('root').innerHTML = `${home}`;
-})
-
-
-
-  document.getElementById('sendUserSearch').addEventListener('click', () => {
-    let userWrote = document.getElementById('search').value;
-    console.log(userWrote)
-  })
-
-    .then(function(data) {
-        data_s=data.Search;
-       console.log('data = ',data);
-       const forData = data_s.forEach(element=> {
-                 
-        two.innerHTML += `<div> <img class="imagen" src="${element.Poster}"> ${element.Title} </div>`
-         console.log(element.img);
-   })
-
-   
-       })
-    
-         })*/
       
-
+})
+ 
