@@ -48,9 +48,15 @@ $('.carousel').carousel({
     })
     .then(function(data) {
         data=data.Search;
+        const forData = data.forEach(element=> {
+                
+            root.innerHTML += `<div> <img class="imagen" src="${element.Poster}"> ${element.Title} ${element.Year} </div>`
+             console.log(element.img);
+       })
+    
 
     })
-
+ 
       
 })
  
