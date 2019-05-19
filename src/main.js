@@ -1,5 +1,6 @@
 window.onload;
 
+
 // URL de api OMDb
 let omdb = "https://www.omdbapi.com/?s=";
 
@@ -32,6 +33,12 @@ $('.carousel').carousel({
 	interval: 2450
   })
 
+
+
+
+
+
+
   document.getElementById('movies').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
@@ -41,6 +48,16 @@ $('.carousel').carousel({
     })
     .then(function(data) {
         data=data.Search;
+
+       
+  /*
+let type2= "";
+document.getElementById("Type").addEventListener("change",()=>{
+    type2= document.getElementById("star").text;
+    
+    two.innerHTML="";   
+fetch("https://www.omdbapi.com/?s=star&apikey=21b45cac")
+
 
      data.forEach(element=> {
       document.getElementById('root').innerHTML += 
@@ -52,6 +69,7 @@ $('.carousel').carousel({
       `
      })
     })
+
   })
 
 document.getElementById('movies').addEventListener('change', () => {  
@@ -90,3 +108,19 @@ document.getElementById('home').addEventListener('click', () => {
     let userWrote = document.getElementById('search').value;
     console.log(userWrote)
   })
+
+    .then(function(data) {
+        data_s=data.Search;
+       console.log('data = ',data);
+       const forData = data_s.forEach(element=> {
+                 
+        two.innerHTML += `<div> <img class="imagen" src="${element.Poster}"> ${element.Title} </div>`
+         console.log(element.img);
+   })
+
+   
+       })
+    
+         })*/
+      
+
