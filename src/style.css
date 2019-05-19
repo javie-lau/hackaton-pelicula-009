@@ -1,13 +1,19 @@
-    /* Botones para compartir a redes sociales */
+	/* Formato general */
+#root{
+	margin: 1% 2%;
+}
+
+	
+	/* Botones para compartir a redes sociales */
 
 .shared-panel{
 	overflow: auto;
 }
-.shared-panel span{
+/* .shared-panel span{
 	margin: 10px 0;
 	font-size: 16px;
 	font-weight: 600;
-}
+} */
 .shared {
 	display: inline-block;
 	width: 30px; 

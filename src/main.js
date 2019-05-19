@@ -1,37 +1,92 @@
 window.onload;
 
-document.getElementById('root').innerHTML = 
-`    
-    <!-- Botones para compartir -->
-<div class="shared-panel">
-<span>Compartir</span><br>
-    <a target="_blank" class="shared fb" title="Facebook"></a>	
-    <a target="_blank" class="shared tt" title="Twitter"></a>
-    <a target="_blank" class="shared gp" title="Google+"></a>
-    <a  data-action='share/whatsapp/share' class="shared wa" title="WhatsApp"></a>
-    <a target="_blank" class="shared ce" id="sml" title="Email"></a>		
-</div>
-`
+// URL de api OMDb
+let omdb = "https://www.omdbapi.com/?s=";
 
-fetch("https://www.omdbapi.com/?apikey=21b45cac&s=star")
+// Página principal. Carrusel.
+let home = document.getElementById('root').innerHTML = 
+`
+<section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/el-hobbit.jpg" class="d-block w-100" alt="el hobbit">
+    </div>
+    <div class="carousel-item">
+      <img src="img/El_Señor_de_los_Anillos.jpg" class="d-block w-100" alt="el señor de los anillos lego">
+    </div>
+    <div class="carousel-item">
+      <img src="img/el-anillo-pa-cuando.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</section>
+`
+$('.carousel').carousel({
+	interval: 2450
+  })
+
+  document.getElementById('movies').addEventListener('change', () => {  
+    document.getElementById('root').innerHTML = ``; 
+    let value = document.getElementById('movies').value;
+    fetch(omdb+value+'&apikey=21b45cac')
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         data=data.Search;
-       console.log('data = ',data);
-       const forData = data.forEach(element=> {
-        two.innerHTML += `<div> <img class="imagen" src="${element.Poster}"> ${element.Title} </div>`
-         console.log(element.img);
-    })
 
-    document.getElementById("Type").addEventListener("change",()=>{
-        let type= document.getElementById("Type").value;
-        let filterTy= window.filterType(data, type);
-        two.innerHTML="";
-        filterTy.forEach(element=> {
-         one.innerHTML += `<div> <img class="imagen" src="${element.Poster}"> ${element.Title} </div>`
-       })
-    
-         })
-        })
+     data.forEach(element=> {
+      document.getElementById('root').innerHTML += 
+      `
+        <div class="col-12-sm col-3 img-fluid""> 
+        <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+          <h4> ${element.Title}<h4>
+        </div>
+      `
+     })
+    })
+  })
+
+document.getElementById('movies').addEventListener('change', () => {  
+  document.getElementById('root').innerHTML = ``; 
+  
+
+})
+
+// Pantalla de about
+document.getElementById('about').addEventListener('click', () => {
+  document.getElementById('root').innerHTML = 
+  `
+  <article>
+    <h1> ¿Qué es ***? </h1>
+    <p>
+      Somos una página web diseñada para fanáticos de la saga "el 
+      señor de los anillos" y las creaciones de Tolkien en torno a este 
+      fantástico mundo.
+
+      Aquí puedes encontrar desde...
+
+      Si clickeas en "A qué personaje te pareces", 
+    </p>
+  </article>
+  `
+})
+
+// Evento que devuelve a la pantalla principal
+document.getElementById('home').addEventListener('click', () => {
+  document.getElementById('root').innerHTML = `${home}`;
+})
+
+
+
+  document.getElementById('sendUserSearch').addEventListener('click', () => {
+    let userWrote = document.getElementById('search').value;
+    console.log(userWrote)
+  })
