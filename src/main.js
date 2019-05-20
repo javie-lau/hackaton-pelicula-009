@@ -48,7 +48,7 @@ $('.carousel').carousel({
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
     let gameOrMovie = document.getElementById('others').value;
-    fetch(omdb+gameOrMovie+value+'&apikey=21b45cac')
+    fetch(omdb+gameOrMovie+value+'&i&apikey=21b45cac')
     .then(function(response) {
         return response.json();
     })
@@ -56,15 +56,15 @@ $('.carousel').carousel({
         data=data.Search;
         data.forEach(element=> {
           document.getElementById('root').innerHTML += 
-          `
-          <div class="col-12-sm col-4 img-fluid""> 
-          <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+          ` 
+          <div class="col-12-sm col-4" >
+            <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
+                <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+            </a>
             <h5> ${element.Title}<h5>
-          </div>
+          </div> 
         `
        })
-      })
-    })
 
     
     // Modal
@@ -73,7 +73,7 @@ $('.carousel').carousel({
       document.getElementById('movieModalScreen').innerHTML +=
       `
     <!-- Modal -->
-    <div class="modal fade" id="modal${element.imdbID}" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div id="modal${element.imdbID}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -96,6 +96,9 @@ $('.carousel').carousel({
     })
   }
   modal(data);
+   })
+
+    })
 
   
   // Pantalla de about
