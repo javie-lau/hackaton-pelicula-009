@@ -2,9 +2,10 @@ window.onload;
 
 
 // URL de api OMDb
-let omdb = "https://www.omdbapi.com/?s=";
+let omdb = "https://www.omdbapi.com/?";
+
 //otra data
-let tmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6"
+let tmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
 fetch("https://api.themoviedb.org/3/search/movie?"+ tmdb+"&query=Lord+Of+The+rings")
 .then(function(response) {
     return response.json();
@@ -43,10 +44,11 @@ $('.carousel').carousel({
 	interval: 2450
   })
 
-  document.getElementById('movies').addEventListener('change', () => {  
+  document.getElementById('others').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
-    fetch(omdb+value+'&apikey=21b45cac')
+    let gameOrMovie = document.getElementById('others').value;
+    fetch(omdb+gameOrMovie+value+'&apikey=21b45cac')
     .then(function(response) {
         return response.json();
     })
@@ -55,9 +57,9 @@ $('.carousel').carousel({
         data.forEach(element=> {
           document.getElementById('root').innerHTML += 
           `
-          <div class="col-12-sm col-3 img-fluid""> 
+          <div class="col-12-sm col-4 img-fluid""> 
           <img class="image" src="${element.Poster}" alt="${element.Title}"> 
-            <h4> ${element.Title}<h4>
+            <h5> ${element.Title}<h5>
           </div>
         `
        })
