@@ -2,11 +2,13 @@ window.onload;
 
 
 // URL de api OMDb
-let omdb = "https://www.omdbapi.com/?";
+let omdb = "https://www.omdbapi.com/?s=";;
 
 //otra data
-let tmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
-fetch("https://api.themoviedb.org/3/search/movie?"+ tmdb+"&query=Lord+Of+The+rings")
+let keyTmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
+let tmdb="https://api.themoviedb.org/3/search/movie?"
+let busqueda= "&query=hobbit"
+fetch(tmdb+keyTmdb+busqueda)
 .then(function(response) {
     return response.json();
 })
@@ -44,27 +46,51 @@ $('.carousel').carousel({
 	interval: 2450
   })
 
-  document.getElementById('others').addEventListener('change', () => {  
+  document.getElementById('movies').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
-    let gameOrMovie = document.getElementById('others').value;
-    fetch(omdb+gameOrMovie+value+'&i&apikey=21b45cac')
+    
+    fetch(tmdb+keyTmdb+value)
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
-        data=data.Search;
+        data=data.results;
         data.forEach(element=> {
+          console.log(element.poster_path);
           document.getElementById('root').innerHTML += 
           ` 
           <div class="col-12-sm col-4" >
-            <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
-                <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+            <a class="btn" data-toggle="modal" data-target="#modal${element.overview}"> 
+                <img class="image" src="${element.poster_path}" alt="${element.title}"> 
             </a>
             <h5> ${element.Title}<h5>
           </div> 
         `
        })
+       document.getElementById('others').addEventListener('change', () => {  
+        document.getElementById('root').innerHTML = ``; 
+        let gameOrMovie = document.getElementById('others').value;
+        fetch(omdb+gameOrMovie+'&apikey=21b45cac')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            datas=data.Search;
+            datas.forEach(element=> {
+              document.getElementById('root').innerHTML += 
+              `
+              <div class="col-12-sm col-3 img-fluid""> 
+              <div class="col-12-sm col-4" >
+              <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
+              <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+                <h4> ${element.Title}<h4>
+              </div>
+            `
+           })
+          })
+        })
+
 
     
     // Modal
