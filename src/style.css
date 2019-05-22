@@ -3,6 +3,8 @@
 #logo h1{
 	text-align: center;
 	padding: 4% 0%;
+	font-family: 'Kaushan Script', cursive;
+	font-size: 300%;
 }
 
 .navbar{
@@ -18,6 +20,9 @@ background-color: #0dc143;
 	background-color: #0dc143;
 	border-radius: 5%;
 	padding: 2% 5%;
+	font-family: Times New Roman;
+	font-size: 20px;
+	background-color: linear-gradient(180deg, #37C206 0%, rgba(255, 255, 255, 0) 100%);
 }
 	
 
@@ -45,10 +50,9 @@ background-color: #0dc143;
 .shared:hover{
 	opacity: 0.7;
 }
-.shared.gp {background-position: 0px 0px; background-color: #E62B34;}
+
 .shared.tt {background-position: 0px -30px; background-color: #43BDF0;}
 .shared.ce {background-position: 0px -60px; background-color: #8A898D;}
-.shared.wa {background-position: 0px -90px; background-color: #0dc143;}
 .shared.fb {background-position: 0px -120px; background-color: #6081C4;}
 
 .st2{
