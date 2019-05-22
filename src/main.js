@@ -9,37 +9,22 @@ let keyTmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
 let tmdb="https://api.themoviedb.org/3/search/movie?"
 
 
-
+ 
 // Página principal. Carrusel.
 let home = document.getElementById('root').innerHTML = 
 `
-<section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/el-hobbit.jpg" class="d-block w-100" alt="el hobbit">
-    </div>
-    <div class="carousel-item">
-      <img src="img/El_Señor_de_los_Anillos.jpg" class="d-block w-100" alt="el señor de los anillos lego">
-    </div>
-    <div class="carousel-item">
-      <img src="img/el-anillo-pa-cuando.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</section>
+  <article class="welcome-text">
+    <h1 style="text-align: center;">¡Bienvenidos!</h1>
+    <br>
+    <p>Esta página está dedicada a la comunidad de fans de la saga "El señor de los anillos."
+    Aquí podrás encontrar información sobre películas, así como también enlaces a páginas donde 
+    puedes verlas. Además te invitamos a explorar la galería de arte proveniente de fans como 
+    tú, y, el área de comunidad de fans aquí en Chile, donde podrás conectar con otros amantes de la saga.</p>
+    <h5>¡Gracias por tu visita!</h5>
+  </article>
 `
-$('.carousel').carousel({
-	interval: 2450
-  })
-  //llamado a través del select a data tmdb para las peliculas
 
+  //llamado a través del select a data tmdb para las peliculas
   document.getElementById('movies').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
@@ -153,32 +138,20 @@ $('.carousel').carousel({
           })
         })
   
-  // Pantalla de about
-  document.getElementById('about').addEventListener('click', () => {
+  // Pantalla de galería de arte por fans
+  document.getElementById('fanart').addEventListener('click', () => {
     document.getElementById('root').innerHTML = 
     `
-    <article>
-      <h1> ¿Qué es ***? </h1>
-      <p>
-        Somos una página web diseñada para fanáticos de la saga "el 
-        señor de los anillos" y las creaciones de Tolkien en torno a este 
-        fantástico mundo.
-  
-        Aquí puedes encontrar desde...
-  
-        Si clickeas en "A qué personaje te pareces", 
-      </p>
-    </article>
+    <section>
+
+    </section>
     `
   })
+
+  //Link(?)
+  document.getElementById('comunity').addEventListener('click', () => {
+    document.getElementById('root').innerHTML =
+  `
   
-  document.getElementById('home').addEventListener('click', () => {
-    document.getElementById('root').innerHTML = `${home}`;
+  `
   })
-  
-  
-  
-    document.getElementById('sendUserSearch').addEventListener('click', () => {
-      let userWrote = document.getElementById('search').value;
-      console.log(userWrote)
-    })     

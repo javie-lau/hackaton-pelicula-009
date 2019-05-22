@@ -1,11 +1,27 @@
 	/* Formato general */
+
+#logo h1{
+	text-align: center;
+	padding: 4% 0%;
+}
+
+.navbar{
+background-color: #0dc143;
+}
+
 #root{
 	margin: 1% 2%;
 }
 
+.welcome-text{
+	margin: 5% 15%;
+	background-color: #0dc143;
+	border-radius: 5%;
+	padding: 2% 5%;
+}
 	
-	/* Botones para compartir a redes sociales */
 
+	/* Botones para compartir a redes sociales */
 .shared-panel{
 	overflow: auto;
 }
