@@ -8,7 +8,6 @@ let omdb = "https://www.omdbapi.com/?s=";;
 let keyTmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
 let tmdb="https://api.themoviedb.org/3/search/movie?"
 
-
  
 // Página principal. Carrusel.
 let home = document.getElementById('root').innerHTML = 
@@ -16,7 +15,7 @@ let home = document.getElementById('root').innerHTML =
   <article class="welcome-text">
     <h1 style="text-align: center;">¡Bienvenidos!</h1>
     <br>
-    <p>Esta página está dedicada a la comunidad de fans de la saga "El señor de los anillos."
+    <p>Esta página está dedicada a la comunidad de fans de la saga "El señor de los anillos" y "El hobbit";
     Aquí podrás encontrar información sobre películas, así como también enlaces a páginas donde 
     puedes verlas. Además te invitamos a explorar la galería de arte proveniente de fans como 
     tú, y, el área de comunidad de fans aquí en Chile, donde podrás conectar con otros amantes de la saga.</p>
