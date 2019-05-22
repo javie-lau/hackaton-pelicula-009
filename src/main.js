@@ -29,21 +29,9 @@ document.getElementById('home').addEventListener('click', () => {
 }) 
 
 
-document.getElementById('movies').addEventListener('click', () => {
-  alert('hhhh')
-  document.getElementById('root').innerHTML = 
-  `
-  <select name="" id="movie">
-    <option value="">Películas</option>
-    <option value="&query=Lord+Of+The+rings">El señor de los anillos</option>
-    <option value="&query=hobbit">El hobbit</option>
-  </select>
-  <select name="" id="games">
-    <option value="hobbit&type=game">El hobbit</option>
-    <option value="the-lord-of-the-rings&type=game">El señor de los anillos</option>
-  </select>
-  `
-})
+// document.getElementById('movies').addEventListener('click', () => {
+//   document.getElementById('root').innerHTML = 
+// })
   //llamado a través del select a data tmdb para las peliculas
   document.getElementById('movie').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
@@ -69,6 +57,7 @@ document.getElementById('movies').addEventListener('click', () => {
           </div> 
         `
        })
+
     
     // Modal
   // function modal(theModal){
@@ -99,7 +88,7 @@ document.getElementById('movies').addEventListener('click', () => {
   //   })
   // }
   // modal(data);
-   })
+})
 })
 
 //select de juegos a data Omdb
