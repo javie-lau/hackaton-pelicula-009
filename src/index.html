@@ -15,50 +15,28 @@
 <body>
     <header>
         <div id="logo">
-            
+            <h1>La comunidad del anillo</h1>
         </div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a id="home" class="navbar-brand" href="#">Home</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#"><strong>A qué personaje te pareces</strong><span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div>
-                                <select name="" id="movies">
-                                    <option value="">Películas</option>
-                                    <option value="&query=Lord+Of+The+rings">El señor de los anillos</option>
-                                    <option value="&query=hobbit">El hobbit</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <div>
-                                <select name="" id="others">
-                                    <option value="">-- choose --</option>
-                                    <option value="hobbit&type=game">El hobbit</option>
-                                    <option value="the-lord-of-the-rings&type=game">El señor de los anillos</option>
-                                </select>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a  id="about" class="nav-link button" href="#">¿Quiénes somos?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  id="fans" class="nav-link button" href="#">Conecta con otros fans</a>
-                        </li>
-                        </ul>
-                        <form id="form" class="form-inline my-2 my-lg-0">
-                        <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button id="sendUserSearch" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                    </nav>
+        <nav class="navbar navbar-expand-lg navbar-light row">
+            <a id="home" class="navbar-brand col-4" style="text-align: center" href="#">Inicio</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active col-8">
+                    <a id="movies" class="nav-link" href="#">Películas<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active col-8">
+                    <a class="nav-link" href="#">Fan Art<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item col-8">
+                    <a class="nav-link" href="#">Comunidad<span class="sr-only">(current)</span></a>
+                </li>
+                </ul>
+            </div>
+            </nav>
                     
     </header>
         
@@ -71,7 +49,7 @@
     </div>
     
 
-    <footer>
+    <footer class="row">
             <!-- Botones para compartir -->
 <div class="shared-panel">
     <span>Compartir</span><br>
