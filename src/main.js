@@ -8,14 +8,7 @@ let omdb = "https://www.omdbapi.com/?s=";;
 let keyTmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
 let tmdb="https://api.themoviedb.org/3/search/movie?"
 let busqueda= "&query=hobbit"
-fetch(tmdb+keyTmdb+busqueda)
-.then(function(response) {
-    return response.json();
-})
-.then(function(data){
-    datas=data;
-    console.log(datas)
-})
+
 
 // Página principal. Carrusel.
 let home = document.getElementById('root').innerHTML = 
@@ -50,21 +43,21 @@ $('.carousel').carousel({
     document.getElementById('root').innerHTML = ``; 
     let value = document.getElementById('movies').value;
     
-    fetch(tmdb+keyTmdb+value)
+    fetch(tmdb+keyTmdb+value+"&language=es")
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         data=data.results;
-        
-        data.forEach(element=> {
+        console.log(data)
+         data.forEach(element=> {
           let poster = "https://image.tmdb.org/t/p/original"+element.poster_path;
           console.log(element.logo_path);
           document.getElementById('root').innerHTML += 
           ` 
           <div class="col-12-sm col-4" >
             <a class="btn" data-toggle="modal" data-target="#modal${element.overview}"> 
-                <img class="image" src="${poster}" alt="${element.title}"> 
+             <class>  <img class="image" src="${poster}" alt="${element.title}"> ${element.overview} </class> 
             </a>
             <h5> ${element.Title}<h5>
           </div> 
