@@ -56,27 +56,32 @@ $('.carousel').carousel({
     })
     .then(function(data) {
         data=data.results;
+        
         data.forEach(element=> {
-          console.log(element.poster_path);
+          let poster = "https://image.tmdb.org/t/p/original"+element.poster_path;
+          console.log(element.logo_path);
           document.getElementById('root').innerHTML += 
           ` 
           <div class="col-12-sm col-4" >
             <a class="btn" data-toggle="modal" data-target="#modal${element.overview}"> 
-                <img class="image" src="${element.poster_path}" alt="${element.title}"> 
+                <img class="image" src="${poster}" alt="${element.title}"> 
             </a>
             <h5> ${element.Title}<h5>
           </div> 
         `
        })
-       document.getElementById('others').addEventListener('change', () => {  
-        document.getElementById('root').innerHTML = ``; 
-        let gameOrMovie = document.getElementById('others').value;
+       document.getElementById("others").addEventListener('change', () => {  
+         alert("hola");
+        document.getElementById('root').innerHTML = ``;
+         
+        let gameOrMovie = document.getElementById("others").value;
         fetch(omdb+gameOrMovie+'&apikey=21b45cac')
         .then(function(response) {
             return response.json();
         })
         .then(function(data) {
             datas=data.Search;
+            console.log(datas)
             datas.forEach(element=> {
               document.getElementById('root').innerHTML += 
               `
