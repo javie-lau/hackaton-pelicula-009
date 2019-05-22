@@ -60,7 +60,7 @@ $('.carousel').carousel({
             <a class="btn" data-toggle="modal" data-target="#modal${element.id}"> 
               <img class="image" src="${poster}" alt="${element.title}">
             </a>
-            <h5 style="text-align:center"> ${element.Title}<h5>
+            <h5 style="text-align:center"> ${element.title}<h5>
           </div> 
         `
        })
@@ -75,7 +75,7 @@ $('.carousel').carousel({
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalScrollableTitle">${element.title}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
