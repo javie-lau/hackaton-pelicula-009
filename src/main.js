@@ -4,10 +4,10 @@ window.onload;
 // URL de api OMDb
 let omdb = "https://www.omdbapi.com/?s=";;
 
-//otra data
+//data de tmdb
 let keyTmdb="api_key=67e6ed2c457ae100374fe5478a9f4cc6";
 let tmdb="https://api.themoviedb.org/3/search/movie?"
-let busqueda= "&query=hobbit"
+
 
 
 // Página principal. Carrusel.
@@ -38,6 +38,7 @@ let home = document.getElementById('root').innerHTML =
 $('.carousel').carousel({
 	interval: 2450
   })
+  //llamado a través del select a data tmdb para las peliculas
 
   document.getElementById('movies').addEventListener('change', () => {  
     document.getElementById('root').innerHTML = ``; 
@@ -63,8 +64,9 @@ $('.carousel').carousel({
           </div> 
         `
        })
+       //select de juegos a data Omdb
        document.getElementById("others").addEventListener('change', () => {  
-         alert("hola");
+         
         document.getElementById('root').innerHTML = ``;
          
         let gameOrMovie = document.getElementById("others").value;
