@@ -56,42 +56,14 @@ $('.carousel').carousel({
           console.log(element.logo_path);
           document.getElementById('root').innerHTML += 
           ` 
-          <div class="col-12-sm col-4" >
-            <a class="btn" data-toggle="modal" data-target="#modal${element.overview}"> 
-             <class>  <img class="image" src="${poster}" alt="${element.title}"> ${element.overview} </class> 
+          <div class="poster col-md-4 col-sm-12">
+            <a class="btn" data-toggle="modal" data-target="#modal${element.id}"> 
+              <img class="image" src="${poster}" alt="${element.title}">
             </a>
-            <h5> ${element.Title}<h5>
+            <h5 style="text-align:center"> ${element.Title}<h5>
           </div> 
         `
        })
-       //select de juegos a data Omdb
-       document.getElementById("others").addEventListener('change', () => {  
-         
-        document.getElementById('root').innerHTML = ``;
-         
-        let gameOrMovie = document.getElementById("others").value;
-        fetch(omdb+gameOrMovie+'&apikey=21b45cac')
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            datas=data.Search;
-            console.log(datas)
-            datas.forEach(element=> {
-              document.getElementById('root').innerHTML += 
-              `
-              <div class="col-12-sm col-3 img-fluid""> 
-              <div class="col-12-sm col-4" >
-              <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
-              <img class="image" src="${element.Poster}" alt="${element.Title}"> 
-                <h4> ${element.Title}<h4>
-              </div>
-            `
-           })
-          })
-        })
-
-
     
     // Modal
   function modal(theModal){
@@ -99,7 +71,7 @@ $('.carousel').carousel({
       document.getElementById('movieModalScreen').innerHTML +=
       `
     <!-- Modal -->
-    <div id="modal${element.imdbID}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div id="modal${element.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -109,7 +81,7 @@ $('.carousel').carousel({
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <p> ${element.overview} </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -126,6 +98,60 @@ $('.carousel').carousel({
 
     })
 
+           //select de juegos a data Omdb
+           document.getElementById("others").addEventListener('change', () => {  
+         
+            document.getElementById('root').innerHTML = ``;
+             
+            let gameOrMovie = document.getElementById("others").value;
+            fetch(omdb+gameOrMovie+'&apikey=21b45cac')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                datas=data.Search;
+                console.log(datas)
+                datas.forEach(element=> {
+                  document.getElementById('root').innerHTML += 
+                  `
+                  <div class="poster col-md-4 col-sm-12"> 
+                  <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
+                    <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+                  <h5 style="text-align:center"> ${element.Title}<h5>
+                  </div>
+                `
+               })
+                   // Modal
+      function modal2(theModal2){
+        theModal2.forEach(element =>{
+          document.getElementById('movieModalScreen').innerHTML +=
+          `
+        <!-- Modal -->
+        <div id="modal${element.imdbID}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p> ${element.overview} </p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+          `
+              })
+            }
+            modal2(data);
+          })
+        })
   
   // Pantalla de about
   document.getElementById('about').addEventListener('click', () => {
