@@ -14,7 +14,6 @@ let home = document.getElementById('root').innerHTML =
 `
   <article class="welcome-text">
     <h1 style="text-align: center;">¡Bienvenidos!</h1>
-    <br>
     <p>Esta página está dedicada a la comunidad de fans de la saga "El señor de los anillos" y "El hobbit";
     Aquí podrás encontrar información sobre películas, así como también enlaces a páginas donde 
     puedes verlas. Además te invitamos a explorar la galería de arte proveniente de fans como 
@@ -106,6 +105,8 @@ document.getElementById('home').addEventListener('click', () => {
     })
   }
   modal(data);
+
+
 })
 
 
@@ -113,6 +114,7 @@ document.getElementById('home').addEventListener('click', () => {
 // select de juegos a data Omdb
 document.getElementById("games").addEventListener("change",() => {
   
+
 
 document.getElementById('root').innerHTML = ``;
   
