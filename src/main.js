@@ -12,14 +12,19 @@ let tmdb="https://api.themoviedb.org/3/search/movie?"
 // Página principal. Bienvenida.
 let home = document.getElementById('root').innerHTML = 
 `
-  <article class="welcome-text">
+<div class="container col-12 ">
+  <article class="welcome-text ">
+  
     <h1 style="text-align: center;">¡Bienvenidos!</h1>
     <p>Esta página está dedicada a la comunidad de fans de la saga "El señor de los anillos" y "El hobbit";
     Aquí podrás encontrar información sobre películas, así como también enlaces a páginas donde 
     puedes verlas. Además te invitamos a explorar la galería de arte proveniente de fans como 
     tú, y, el área de comunidad de fans aquí en Chile, donde podrás conectar con otros amantes de la saga.</p>
     <h5>¡Gracias por tu visita!</h5>
+    
   </article>
+  </div>
+  
 `
 
 //Devuelve a la página principal.
@@ -145,17 +150,17 @@ fetch(omdb+gameOrMovie+'&apikey=21b45cac')
 document.getElementById('fanArt').addEventListener("click", () => {
   document.getElementById('root').innerHTML = 
   `
-    <div id="imgFanArt" class="col-md-6 col-sm-12">
+    <div id="imgFanArt" class="offset-4 col-md-4 col-sm-12">
     <div class= "container"> 
-      <img src="https://i.ibb.co/nQQJtp3/fanart2.jpg" id="img-fluid">
-      <img src="https://i.ibb.co/4j8s1Rj/fanart8.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/bbwCGR4/fanart7.png" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/B3J43Cq/fanart4.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/5F6tn2n/fanart5.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/Jz1vXV7/fanart6.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/MkpXVZR/fanart1.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/WByXLLV/fanart3.jpg" alt="" id="img-fluid">
-      <img src="https://i.ibb.co/h1Vtk63/fanart9.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/nQQJtp3/fanart2.jpg" class="img-fluid">
+      <img src="https://i.ibb.co/4j8s1Rj/fanart8.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/bbwCGR4/fanart7.png" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/B3J43Cq/fanart4.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/5F6tn2n/fanart5.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/Jz1vXV7/fanart6.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/MkpXVZR/fanart1.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/WByXLLV/fanart3.jpg" alt="" class="img-fluid">
+      <img src="https://i.ibb.co/h1Vtk63/fanart9.jpg" alt="" class="img-fluid">
       </div>
     </div>
   `
