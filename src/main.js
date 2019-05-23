@@ -70,24 +70,7 @@ document.getElementById('home').addEventListener('click', () => {
         `
         }
       }
-        /*
-         //data.forEach(element=> {
-          //if(element.poster_path === null ){
-           //continue;
-          //}
-           //else{
-          let poster = "https://image.tmdb.org/t/p/w300"+element.poster_path;
-          console.log(element.logo_path);
-          document.getElementById('root').innerHTML += 
-          ` 
-          <div class="poster col-md-4 col-sm-12">
-            <a class="btn" data-toggle="modal" data-target="#modal${element.id}"> 
-            <div class="poster"> <img class="image" src="${poster}"></div>
-            </a>
-            <h5 style="text-align:center"> ${element.title}<h5>
-          </div> 
-        `
-    // }*/
+        
        })
 
     
@@ -119,14 +102,14 @@ document.getElementById('home').addEventListener('click', () => {
       `
     })
   }
-  modal(data);
+  modal(datatwo);
 })
 
 
 
 // select de juegos a data Omdb
 document.getElementById("games").addEventListener("change",() => {
-  alert("hola");
+  
 
 document.getElementById('root').innerHTML = ``;
   
@@ -137,17 +120,30 @@ fetch(omdb+gameOrMovie+'&apikey=21b45cac')
 })
 .then(function(data) {
     datas=data.Search;
-    console.log(datas)
-    datas.forEach(element=> {
-      document.getElementById('root').innerHTML += 
+        for(let index in datas){
+      dataHo=datas[index];
+      console,log(dataHo);
+      if(dataHo.poster_path === null ){
+        continue;
+      }
+      
+      if(dataHo.original_title === "Lord of the Elves"){
+        continue;
+      }
+      else {
+        document.getElementById('root').innerHTML += 
+        `
+        <div class="poster col-md-4 col-sm-12"> 
+        <a class="btn" data-toggle="modal" data-target="#modal${dataHo.imdbID}"> 
+          <img class="image" src="${dataHo.Poster}" alt="${dataHo.Title}"> 
+        <h5 style="text-align:center"> ${element.Title}<h5>
+        </div>
       `
-      <div class="poster col-md-4 col-sm-12"> 
-      <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
-        <img class="image" src="${element.Poster}" alt="${element.Title}"> 
-      <h5 style="text-align:center"> ${element.Title}<h5>
-      </div>
-    `
-    })
+      }
+    }
+ 
+    
+    
         // Modal
 function modal2(theModal2){
   theModal2.forEach(element =>{
@@ -176,7 +172,7 @@ function modal2(theModal2){
       `
   })
 }
-modal2(data);
+modal2(dataHo);
 })
 })
 
