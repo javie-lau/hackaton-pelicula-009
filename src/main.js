@@ -169,14 +169,24 @@ modal2(data);
 
   
   // Pantalla de galería de arte por fans
-  document.getElementById('fanart').addEventListener('click', () => {
-    document.getElementById('root').innerHTML = 
-    `
-    <section>
+  // Pantalla de galería de arte por fans
+document.getElementById('fanArt').addEventListener('click', () => {
+  document.getElementById('root').innerHTML = 
+  `
+    <div id="imgFanArt" class="col-md-6 col-sm-12">
+      <img src="/img/" alt="" class="img-fluid">
+      <img src="/img/una.jpeg" alt="" class="img-fluid">
+      <img src="/img/dos.jpeg" alt="" class="img-fluid">
+      <img src="/img/tres.jpeg" alt="" class="img-fluid">
+      <img src="/img/cuatro.jpeg" alt="" class="img-fluid">
+      <img src="/img/cinco.jpeg" alt="" class="img-fluid">
+      <img src="/img/seis.jpeg" alt="" class="img-fluid">
+      <img src="/img/siete.jpeg" alt="" class="img-fluid">
+      <img src="/img/ocho.jpeg" alt="" class="img-fluid">
+    </div>
+  `
+})
 
-    </section>
-    `
-  })
 
   // //Link(?)
   // document.getElementById('comunity').addEventListener('click', () => {
