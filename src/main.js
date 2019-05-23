@@ -43,18 +43,50 @@ document.getElementById('home').addEventListener('click', () => {
     .then(function(data) {
         data=data.results;
         console.log(data)
-         data.forEach(element=> {
-          let poster = "https://image.tmdb.org/t/p/original"+element.poster_path;
+        for(let index in data){
+          datatwo=data[index];
+          if(datatwo.poster_path === null ){
+           continue;
+                 }
+                 if(datatwo.original_title==="Sagan om Ringen"){
+                   continue;
+                 }
+                 if(datatwo.original_title==="Lord of the Cockrings"){
+                   continue;
+                 }
+           else{
+         
+          let poster = "https://image.tmdb.org/t/p/w300"+datatwo.poster_path;
+          console.log(datatwo.logo_path);
+          document.getElementById('root').innerHTML += 
+          ` 
+          <div class="poster col-md-4 col-sm-12">
+            <a class="btn" data-toggle="modal" data-target="#modal${datatwo.id}"> 
+            <div class="poster"> <img class="image" src="${poster}"></div>
+            </a>
+            <h5 style="text-align:center"> ${datatwo.title}<h5>
+          </div> 
+        `
+        }
+      }
+        /*
+         //data.forEach(element=> {
+          //if(element.poster_path === null ){
+           //continue;
+          //}
+           //else{
+          let poster = "https://image.tmdb.org/t/p/w300"+element.poster_path;
           console.log(element.logo_path);
           document.getElementById('root').innerHTML += 
           ` 
           <div class="poster col-md-4 col-sm-12">
             <a class="btn" data-toggle="modal" data-target="#modal${element.id}"> 
-              <img class="image" src="${poster}" alt="${element.title}">
+            <div class="poster"> <img class="image" src="${poster}"></div>
             </a>
             <h5 style="text-align:center"> ${element.title}<h5>
           </div> 
         `
+    // }*/
        })
 
     
@@ -87,11 +119,6 @@ document.getElementById('home').addEventListener('click', () => {
     })
   }
   modal(data);
-})
-})
-
-// select de juegos a data Omdb
-document.getElementById("games").addEventListener('changes', () => {  
 
 document.getElementById('root').innerHTML = ``;
   

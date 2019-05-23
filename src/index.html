@@ -23,12 +23,18 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+            <select name="" id="movie">
+                <option value="">Películas</option>
+                <option value="&query=The+Lord+Of+The+Rings+">El señor de los anillos</option>
+                <option value="&query=The+Hobbit+">El hobbit</option>
+                </select>
+                <select name="" id="games">
+            <option value="">Juegos</option>
+            <option value="hobbit&type=game">El hobbit</option>
+            <option value="the-lord-of-the-rings&type=game">El señor de los anillos</option>
+                </select>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                <li class="nav-item active col-8">
-                    <a id="movies" class="nav-link" href="#">Películas<span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item active col-8">
                     <a class="nav-link" href="#">Fan Art<span class="sr-only">(current)</span></a>
                 </li>
@@ -39,16 +45,6 @@
             </div>
             </nav>
 
-        <select name="" id="movie">
-        <option value="">Películas</option>
-        <option value="&query=Lord+Of+The+rings">El señor de los anillos</option>
-        <option value="&query=hobbit">El hobbit</option>
-        </select>
-        <select name="" id="games">
-    <option value="">Juegos</option>
-    <option value="hobbit&type=game">El hobbit</option>
-    <option value="the-lord-of-the-rings&type=game">El señor de los anillos</option>
-        </select>
     </header>
         
     <section id="movieModalScreen">
@@ -66,8 +62,6 @@
     <span>Compartir</span><br>
         <a target="_blank" class="shared fb" title="Facebook"></a>	
         <a target="_blank" class="shared tt" title="Twitter"></a>
-        <a target="_blank" class="shared gp" title="Google+"></a>
-        <a  data-action='share/whatsapp/share' class="shared wa" title="WhatsApp"></a>
         <a target="_blank" class="shared ce" id="sml" title="Email"></a>		
     </div>
     </footer>
