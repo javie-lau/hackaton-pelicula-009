@@ -44,9 +44,30 @@ document.getElementById('home').addEventListener('click', () => {
     .then(function(data) {
         data=data.results;
         console.log(data)
-         data.forEach(element=> {
-          // if(element === "id:192349"){
-          // continue;
+        for(let index in data){
+          datatwo=data[index];
+          if(datatwo.poster_path === null ){
+           continue;
+          }
+           else{
+         
+          let poster = "https://image.tmdb.org/t/p/w300"+datatwo.poster_path;
+          console.log(datatwo.logo_path);
+          document.getElementById('root').innerHTML += 
+          ` 
+          <div class="poster col-md-4 col-sm-12">
+            <a class="btn" data-toggle="modal" data-target="#modal${datatwo.id}"> 
+            <div class="poster"> <img class="image" src="${poster}"></div>
+            </a>
+            <h5 style="text-align:center"> ${datatwo.title}<h5>
+          </div> 
+        `
+        }
+      }
+        /*
+         //data.forEach(element=> {
+          //if(element.poster_path === null ){
+           //continue;
           //}
            //else{
           let poster = "https://image.tmdb.org/t/p/w300"+element.poster_path;
@@ -60,7 +81,7 @@ document.getElementById('home').addEventListener('click', () => {
             <h5 style="text-align:center"> ${element.title}<h5>
           </div> 
         `
-      //}
+    // }*/
        })
 
     
@@ -95,7 +116,7 @@ document.getElementById('home').addEventListener('click', () => {
   modal(data);
 })
 
-})
+
 
 // select de juegos a data Omdb
 document.getElementById("games").addEventListener("change",() => {
