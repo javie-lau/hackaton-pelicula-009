@@ -64,3 +64,8 @@ background-color: #0dc143;
 .poster{
 background-size: cover;	
 }
+/* FanArt screen */
+.img-fluid{ 
+	max-width: 100%;
+	margin: 1%;
+}

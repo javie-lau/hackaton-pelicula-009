@@ -54,6 +54,9 @@ document.getElementById('home').addEventListener('click', () => {
                  if(datatwo.original_title==="Lord of the Cockrings"){
                    continue;
                  }
+                 if(datatwo.original_title === "Lord of the Elves"){
+                  continue;
+                }
            else{
          
           let poster = "https://image.tmdb.org/t/p/w300"+datatwo.poster_path;
@@ -69,24 +72,7 @@ document.getElementById('home').addEventListener('click', () => {
         `
         }
       }
-        /*
-         //data.forEach(element=> {
-          //if(element.poster_path === null ){
-           //continue;
-          //}
-           //else{
-          let poster = "https://image.tmdb.org/t/p/w300"+element.poster_path;
-          console.log(element.logo_path);
-          document.getElementById('root').innerHTML += 
-          ` 
-          <div class="poster col-md-4 col-sm-12">
-            <a class="btn" data-toggle="modal" data-target="#modal${element.id}"> 
-            <div class="poster"> <img class="image" src="${poster}"></div>
-            </a>
-            <h5 style="text-align:center"> ${element.title}<h5>
-          </div> 
-        `
-    // }*/
+        
        })
 
     
@@ -96,17 +82,17 @@ document.getElementById('home').addEventListener('click', () => {
       document.getElementById('movieModalScreen').innerHTML +=
       `
     <!-- Modal -->
-    <div id="modal${element.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div id="modal${datatwo.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">${element.title}</h5>
+            <h5 class="modal-title" id="exampleModalScrollableTitle">${datatwo.title}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p> ${element.overview} </p>
+            <p> ${datatwo.overview} </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -119,6 +105,16 @@ document.getElementById('home').addEventListener('click', () => {
     })
   }
   modal(data);
+
+
+})
+
+
+
+// select de juegos a data Omdb
+document.getElementById("games").addEventListener("change",() => {
+  
+
 
 document.getElementById('root').innerHTML = ``;
   
@@ -175,14 +171,24 @@ modal2(data);
 
   
   // Pantalla de galería de arte por fans
-  document.getElementById('fanart').addEventListener('click', () => {
-    document.getElementById('root').innerHTML = 
-    `
-    <section>
+  // Pantalla de galería de arte por fans
+document.getElementById('fanArt').addEventListener('click', () => {
+  document.getElementById('root').innerHTML = 
+  `
+    <div id="imgFanArt" class="col-md-6 col-sm-12">
+      <img src="/img/" alt="" class="img-fluid">
+      <img src="/img/una.jpeg" alt="" class="img-fluid">
+      <img src="/img/dos.jpeg" alt="" class="img-fluid">
+      <img src="/img/tres.jpeg" alt="" class="img-fluid">
+      <img src="/img/cuatro.jpeg" alt="" class="img-fluid">
+      <img src="/img/cinco.jpeg" alt="" class="img-fluid">
+      <img src="/img/seis.jpeg" alt="" class="img-fluid">
+      <img src="/img/siete.jpeg" alt="" class="img-fluid">
+      <img src="/img/ocho.jpeg" alt="" class="img-fluid">
+    </div>
+  `
+})
 
-    </section>
-    `
-  })
 
   // //Link(?)
   // document.getElementById('comunity').addEventListener('click', () => {
