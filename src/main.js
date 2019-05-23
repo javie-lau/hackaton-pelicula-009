@@ -64,10 +64,13 @@ document.getElementById('home').addEventListener('click', () => {
           document.getElementById('root').innerHTML += 
           ` 
           <div class="poster col-md-4 col-sm-12">
-            <a class="btn" data-toggle="modal" data-target="#modal${datatwo.id}"> 
+            <a class="btn" data-toggle="modal" > 
             <div class="poster"> <img class="image" src="${poster}"></div>
             </a>
             <h5 style="text-align:center"> ${datatwo.title}<h5>
+           
+             <p style="text-align:center"> ${datatwo.overview}</p>
+             <p style="text-align:center"> fecha de estreno ${datatwo.release_date}</p>
           </div> 
         `
         }
@@ -77,34 +80,7 @@ document.getElementById('home').addEventListener('click', () => {
 
     
     // Modal
-  function modal(theModal){
-    theModal.forEach(element =>{
-      document.getElementById('movieModalScreen').innerHTML +=
-      `
-    <!-- Modal -->
-    <div id="modal${datatwo.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">${datatwo.title}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p> ${datatwo.overview} </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-      `
-    })
-  }
-  modal(data);
+ 
 
 
 })
@@ -126,70 +102,110 @@ fetch(omdb+gameOrMovie+'&apikey=21b45cac')
 .then(function(data) {
     datas=data.Search;
     console.log(datas)
-    datas.forEach(element=> {
-      document.getElementById('root').innerHTML += 
-      `
-      <div class="poster col-md-4 col-sm-12"> 
-      <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
-        <img class="image" src="${element.Poster}" alt="${element.Title}"> 
-      <h5 style="text-align:center"> ${element.Title}<h5>
-      </div>
-    `
-    })
-        // Modal
-function modal2(theModal2){
-  theModal2.forEach(element =>{
-    document.getElementById('movieModalScreen').innerHTML +=
-      `
-      <!-- Modal -->
-      <div id="modal${element.imdbID}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p> ${element.overview} </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
+    for (let index in datas){
+      dataGame= datas[index];
+      if(dataGame.Title=== "The Lord of the Rings: The Battle for Middle-earth II - The Rise of the Witch-king"){
+        continue;
+      }
+      if(dataGame.Title==="The Lord of the Rings: War in the North"){
+        continue;
+      }
+      if(dataGame.Title==="The Lord of the Rings: The Battle for Middle-Earth"){
+        continue;
+      }
+      if(dataGame.Title=== "The Lord of the Rings: The Third Age"){
+        continue;
+      }
+      if(dataGame.Title=== "The Lord of the Rings Online"){
+        continue;
+      }
+      else{
+        document.getElementById('root').innerHTML += 
+        `
+        <div class="poster col-md-4 col-sm-12"> 
+        <a class="btn" data-toggle="modal" data-target="#modal${dataGame.imdbID}"> 
+          <img class="image" src="${dataGame.Poster}" alt="${data.Title}"> 
+        <h5 style="text-align:center"> ${dataGame.Title}<h5>
         </div>
-      </div>
       `
-  })
-}
-modal2(data);
+
+      }
+    
+    
+     
+    }
+ 
 })
 })
 
 
   
   // Pantalla de galería de arte por fans
-  // Pantalla de galería de arte por fans
-document.getElementById('fanArt').addEventListener('click', () => {
+ // Pantalla de galería de arte por fans
+document.getElementById('fanArt').addEventListener("click", () => {
   document.getElementById('root').innerHTML = 
   `
     <div id="imgFanArt" class="col-md-6 col-sm-12">
-      <img src="/img/" alt="" class="img-fluid">
-      <img src="/img/una.jpeg" alt="" class="img-fluid">
-      <img src="/img/dos.jpeg" alt="" class="img-fluid">
-      <img src="/img/tres.jpeg" alt="" class="img-fluid">
-      <img src="/img/cuatro.jpeg" alt="" class="img-fluid">
-      <img src="/img/cinco.jpeg" alt="" class="img-fluid">
-      <img src="/img/seis.jpeg" alt="" class="img-fluid">
-      <img src="/img/siete.jpeg" alt="" class="img-fluid">
-      <img src="/img/ocho.jpeg" alt="" class="img-fluid">
+    <div class= "container"> 
+      <img src="https://i.ibb.co/nQQJtp3/fanart2.jpg" id="img-fluid">
+      <img src="https://i.ibb.co/4j8s1Rj/fanart8.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/bbwCGR4/fanart7.png" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/B3J43Cq/fanart4.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/5F6tn2n/fanart5.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/Jz1vXV7/fanart6.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/MkpXVZR/fanart1.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/WByXLLV/fanart3.jpg" alt="" id="img-fluid">
+      <img src="https://i.ibb.co/h1Vtk63/fanart9.jpg" alt="" id="img-fluid">
+      </div>
     </div>
   `
 })
 
-
-  // //Link(?)
-  // document.getElementById('comunity').addEventListener('click', () => {
-  //   document.getElementById('root').innerHTML = `ss` })
+ // movie link
+ document.getElementById("comunity").addEventListener("click", () => {
+  document.getElementById('root').innerHTML = 
+  `
+  <div>
+  <h1>Unete a la comunidad en facebook</h1>
+  <a href="https://m.facebook.com/TolkienChile/">
+  STC Sociedad Tolkien Chilena</a>
+  <br>
+  <a href="https://m.facebook.com/groups/sdlalcgcomunidadchile">El Señor de los Anillos LCG Comunidad Chile</a>
+  <br>
+  <a href="https://www.instagram.com/tolkienchile/?igshid=1nd1oga0k07mz">tolkienchile
+  </a>
+  <br>
+  <a href="https://www.instagram.com/ohtarima/?igshid=1mua1lb1oqwci">ohtarima
+  </a>
+  <br>
+  <a href="https://instagram.com/montaracesdeithilien?igshid=1k8mihjyauyn1">montaracesdeithilien
+  </a>
+  <br>
+  <a href="https://instagram.com/smialerumeos?igshid=a3aybnlfcvde">smialerumeos</a>
+  </div>
+<br>
+  <section col-12>
+  <div>
+  <br>
+  <h3>Si quieres ver alguna pelicula de la trilogía</h3>
+  </div>
+  <div>
+  
+  <br> <br>
+  <a href="http://miradetodo.net/el-senor-de-los-anillos-la-comunidad-del-anillo-2001-720p-hd/"><h6>Link1, La comunidad del anillo</h6></a>
+  <br>
+  <a href="http://pelisplus.co/pelicula/el-senor-de-los-anillos-1-la-comunidad-del-anillo/"><h6>Link2 La comunidad del anillo</h6></a>
+  <br>
+  <a href="http://https://www.pelisplay.tv/pelicula/el-senor-de-los-anillos-1-la-comunidad-del-anillo"><h6>Link3 La comunidad del anillo</h6></a>
+  </div>
+  <br>
+  <div>
+  <a href="http://miradetodo.net/el-senor-de-los-anillos-las-dos-torres-2002-720p-hd/"><h6>El señor de los anillos: Las dos tores</h6></a>
+  </div>
+  <br>
+  <div>
+  <a href="http://miradetodo.net/el-senor-de-los-anillos-el-retorno-del-rey-2003-720p-hd/"><h6>El señor de los anillos: El retorno del rey</h6></a>
+  </div>
+  <section>
+  `
+})
