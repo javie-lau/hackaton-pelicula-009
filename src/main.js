@@ -48,7 +48,13 @@ document.getElementById('home').addEventListener('click', () => {
           datatwo=data[index];
           if(datatwo.poster_path === null ){
            continue;
-          }
+                 }
+                 if(datatwo.original_title==="Sagan om Ringen"){
+                   continue;
+                 }
+                 if(datatwo.original_title==="Lord of the Cockrings"){
+                   continue;
+                 }
            else{
          
           let poster = "https://image.tmdb.org/t/p/w300"+datatwo.poster_path;
