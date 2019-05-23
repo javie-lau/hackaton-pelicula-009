@@ -55,6 +55,9 @@ document.getElementById('home').addEventListener('click', () => {
                  if(datatwo.original_title==="Lord of the Cockrings"){
                    continue;
                  }
+                 if(datatwo.original_title === "Lord of the Elves"){
+                  continue;
+                }
            else{
          
           let poster = "https://image.tmdb.org/t/p/w300"+datatwo.poster_path;
@@ -80,17 +83,17 @@ document.getElementById('home').addEventListener('click', () => {
       document.getElementById('movieModalScreen').innerHTML +=
       `
     <!-- Modal -->
-    <div id="modal${element.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div id="modal${datatwo.id}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalScrollableTitle">${element.title}</h5>
+            <h5 class="modal-title" id="exampleModalScrollableTitle">${datatwo.title}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p> ${element.overview} </p>
+            <p> ${datatwo.overview} </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -102,7 +105,7 @@ document.getElementById('home').addEventListener('click', () => {
       `
     })
   }
-  modal(datatwo);
+  modal(data);
 })
 
 
@@ -120,30 +123,17 @@ fetch(omdb+gameOrMovie+'&apikey=21b45cac')
 })
 .then(function(data) {
     datas=data.Search;
-        for(let index in datas){
-      dataHo=datas[index];
-      console,log(dataHo);
-      if(dataHo.poster_path === null ){
-        continue;
-      }
-      
-      if(dataHo.original_title === "Lord of the Elves"){
-        continue;
-      }
-      else {
-        document.getElementById('root').innerHTML += 
-        `
-        <div class="poster col-md-4 col-sm-12"> 
-        <a class="btn" data-toggle="modal" data-target="#modal${dataHo.imdbID}"> 
-          <img class="image" src="${dataHo.Poster}" alt="${dataHo.Title}"> 
-        <h5 style="text-align:center"> ${element.Title}<h5>
-        </div>
+    console.log(datas)
+    datas.forEach(element=> {
+      document.getElementById('root').innerHTML += 
       `
-      }
-    }
- 
-    
-    
+      <div class="poster col-md-4 col-sm-12"> 
+      <a class="btn" data-toggle="modal" data-target="#modal${element.imdbID}"> 
+        <img class="image" src="${element.Poster}" alt="${element.Title}"> 
+      <h5 style="text-align:center"> ${element.Title}<h5>
+      </div>
+    `
+    })
         // Modal
 function modal2(theModal2){
   theModal2.forEach(element =>{
@@ -172,7 +162,7 @@ function modal2(theModal2){
       `
   })
 }
-modal2(dataHo);
+modal2(data);
 })
 })
 
